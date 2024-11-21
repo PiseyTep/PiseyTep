@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FavoriteCards extends StatefulWidget {
+  const FavoriteCards({super.key});
+
   @override
   _FavoriteCardsState createState() => _FavoriteCardsState();
 }
@@ -43,7 +45,7 @@ class _FavoriteCardsState extends State<FavoriteCards> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(cards[index]['title']),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Text(cards[index]['description']),
                           ],
                         ),

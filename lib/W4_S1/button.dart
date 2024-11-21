@@ -7,6 +7,7 @@ class CustomButton extends StatefulWidget {
   final String buttonType;
 
   const CustomButton({
+    super.key,
     required this.buttonLabel,
     required this.buttonIcon,
     this.iconPosition,
@@ -18,15 +19,16 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  Color _buttonColor = Colors.blue;
+  final Color _buttonColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: _getButtonColor(),
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+        foregroundColor: Colors.white,
+        backgroundColor: _getButtonColor(),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -36,11 +38,11 @@ class _CustomButtonState extends State<CustomButton> {
         children: [
           if (widget.iconPosition == 'left') ...[
             Icon(widget.buttonIcon, size: 18),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
           ],
           Text(widget.buttonLabel),
           if (widget.iconPosition == 'right') ...[
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Icon(widget.buttonIcon, size: 18),
           ],
         ],
@@ -67,15 +69,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Custom Buttons',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Custom Buttons'),
+          title: const Text('Custom Buttons'),
         ),
-        body: Padding(
+        body: const Padding(
           padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

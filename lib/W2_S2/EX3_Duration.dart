@@ -34,15 +34,15 @@ class CustomDuration {
 
 extension CustomDurationOperators on CustomDuration {
   bool operator >(CustomDuration other) {
-    return this._ms > other._ms;
+    return _ms > other._ms;
   }
 
   CustomDuration operator +(CustomDuration other) {
-    return CustomDuration._internal(this._ms + other._ms);
+    return CustomDuration._internal(_ms + other._ms);
   }
 
   CustomDuration operator -(CustomDuration other) {
-    int result = this._ms - other._ms;
+    int result = _ms - other._ms;
     return CustomDuration._internal(result < 0 ? 0 : result);
   }
 }

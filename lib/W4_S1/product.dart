@@ -5,7 +5,8 @@ class ProductCard extends StatelessWidget {
   final String description;
   final String imagePath;
 
-  ProductCard({
+  const ProductCard({
+    super.key,
     required this.title,
     required this.description,
     required this.imagePath,
@@ -23,20 +24,20 @@ class ProductCard extends StatelessWidget {
             height: 80, // Set the desired height for the image
             fit: BoxFit.contain,
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Text(
               description,
               style: TextStyle(
@@ -45,7 +46,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
         ],
       ),
     );
@@ -57,16 +58,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'The Products',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('The Products'),
+          title: const Text('The Products'),
         ),
         body: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,13 +78,13 @@ class MyApp extends StatelessWidget {
                 description: 'The best script language',
                 imagePath: 'assets/w4-s1/dart.png',
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ProductCard(
                 title: 'Flutter',
                 description: 'The best mobile widget library',
                 imagePath: 'assets/w4-s1/flutter.png',
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ProductCard(
                 title: 'Firebase',
                 description: 'The best cloud database',

@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,8 +14,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Container(
             color: Colors.grey, // Set the background color for "My Hobbies"
-            padding: EdgeInsets.all(5.0),
-            child: Text(
+            padding: const EdgeInsets.all(5.0),
+            child: const Text(
               'My Hobbies',
               style: TextStyle(
                 color: Colors.white,
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.grey,
-        body: Column(
+        body: const Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HobbyCard(
@@ -48,16 +50,16 @@ class HobbyCard extends StatelessWidget {
   final Color cardColor;
 
   const HobbyCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     this.cardColor = Colors.green,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(10),
@@ -66,7 +68,7 @@ class HobbyCard extends StatelessWidget {
         leading: Icon(icon, color: Colors.white),
         title: Text(
           title,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
